@@ -11,7 +11,9 @@
   "background": {
     "scripts": [
       "scripts/chromereload.js",
-      "scripts/background.js"
+      "scripts/background.js",
+      "bower_components/chance/chance.js",
+      "scripts/globals.js"
     ]
   },
   "permissions": [
