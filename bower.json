@@ -5,7 +5,8 @@
   "dependencies": {
     "bootstrap": "~3.3.6",
     "font-awesome": "~4.6.3",
-    "chance": "~1.0.3"
+    "chance": "~1.0.3",
+    "handlebars": "~4.0.5"
   },
   "devDependencies": {}
 }
