@@ -13,12 +13,14 @@
     <!-- endbuild -->
   </head>
   <body style="width:400px">
-    <script id="app" type="text/x-handlebars-template">
         <div class="container">
             <div class="page-header">
-              <h2>Chrome REALM</h2>
+              <h2>Chrome Realm</h2>
             </div>
-            <h3>Isle of {{localStorage.character.location}}</h3>
+            <div id="target"></div>
+        </div>
+        <script id="app" type="text/x-handlebars-template">
+            <h3>Isle of loc--{{character.location}}</h3>
             <div class="jumbotron">
                 <div style="text-align:center">
                 <p><button class="btn btn-default">
@@ -32,12 +34,12 @@
                 </button>
                 </div>
             </div>
-        </div>
-    </script>
+        </script>
 
     <!-- build:js scripts/popup-vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/handlebars/handlebars.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

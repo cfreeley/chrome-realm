@@ -10,13 +10,13 @@ chrome.browserAction.setBadgeText({ text: "!" });
 var start = function(e) {
 
     // If character doesn't exist, start over
-    if(!localStorage['character']) {
+    if(true || !localStorage['character']) {
         init();
     }
 
     var action = localStorage.action;
       
-    chrome.browserAction.setIcon({"path":"/images/"+location+ ".png"});
+    //chrome.browserAction.setIcon({"path":"/images/"+location+ ".png"});
 
     console.log('start');
     //chrome.alarms.create("", {"delayInMinutes":1});
@@ -68,12 +68,14 @@ var init = function() {
         notifications: 1,
         sound: 0
     });
+    var island = generateIsland();
+    console.log(island);
     localStorage['character'] = JSON.stringify({
         dollars:0, 
         inventory:{},
-        location:generateIsland() 
+        location:island 
     });
     localStorage['islands'] = JSON.stringify({});
 };
 
-chrome.alarms.onAlarm.addListener(pokemonFound);
+//chrome.alarms.onAlarm.addListener(pokemonFound);
