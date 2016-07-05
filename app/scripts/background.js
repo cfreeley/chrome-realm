@@ -26,23 +26,18 @@ var setAlarm = function(e) {
     return;
     if(localStorage['action'] == "fishing")
         chrome.alarms.create("", {"delayInMinutes":fishAlarm()});
-    else if(localStorage['frequency'] == "rare")
-        chrome.alarms.create("", {"delayInMinutes":45});
-    else if(localStorage['frequency'] == "uncommon")
-        chrome.alarms.create("", {"delayInMinutes":10});
-    else if(localStorage['frequency'] == "random") 
-        chrome.alarms.create("", {"delayInMinutes":(Math.random() * 120)});
-    else
-        chrome.alarms.create("", {"delayInMinutes":1});
+    else if(localStorage['action'] == "hunting")
+        chrome.alarms.create("", {"delayInMinutes":huntAlarm()});
+    else if(localStorage['action'] == "mining")
+        chrome.alarms.create("", {"delayInMinutes":mineAlarm()});
 };
 
 var encounter = function(e) {
     chrome.browserAction.setBadgeText({ text: "!" });
     setAlarm();
     init();
-    return;
-    chrome.browserAction.setIcon({"path":"/images/icon!.png"});
-    chrome.browserAction.setPopup({"popup":"/html/battle.html"});
+    //chrome.browserAction.setIcon({"path":"/images/icon!.png"});
+    chrome.browserAction.setPopup({"popup":"/html/encounter.html"});
     var opt = {
         type: "basic",
         title: "Wild Pokemon Appeared!",

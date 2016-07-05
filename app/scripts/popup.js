@@ -6,7 +6,7 @@ $(function() {
     var context = {
         character: JSON.parse(localStorage['character'])
     };
-    var source = $("#app").html();
+    var source = $("#menu").html();
     var template = Handlebars.compile(source);
     $("#target").html(template(context));
 });
