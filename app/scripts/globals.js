@@ -1,8 +1,12 @@
 var chance = new Chance();
 
+// Generators
+
 var generateIsland = function () {
-    return chance.word().toUpperCase();
+    return capitalize(chance.word());
 };
+
+// Alarms
 
 var fishAlarm = function() {
     return chance.integer({min: 0, max: 10}); 
@@ -15,3 +19,9 @@ var huntAlarm = function() {
 var mineAlarm = function() {
     return chance.integer({min: 0, max: 480}); 
 };
+
+// Miscellanous Utils
+
+var capitalize = function(s) {
+    return s[0].toUpperCase() + s.slice(1);
+}
