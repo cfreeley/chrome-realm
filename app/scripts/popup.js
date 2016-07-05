@@ -1,6 +1,8 @@
 'use strict';
 
 $(function() {
+    chrome.browserAction.setBadgeText({ text: "" });
+    //init();
     var context = {
         character: JSON.parse(localStorage['character'])
     };

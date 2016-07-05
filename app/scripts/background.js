@@ -5,13 +5,12 @@ chrome.runtime.onInstalled.addListener(function (details) {
   console.log('previousVersion', details.previousVersion);
 });
 
-chrome.browserAction.setBadgeText({ text: "!" });
-
 var start = function(e) {
 
     // If character doesn't exist, start over
     if(true || !localStorage['character']) {
         init();
+        setAlarm();
     }
 
     var action = localStorage.action;
@@ -23,6 +22,8 @@ var start = function(e) {
 };
 
 var setAlarm = function(e) {
+    chrome.alarms.create("", {"delayInMinutes":.1});
+    return;
     if(localStorage['action'] == "fishing")
         chrome.alarms.create("", {"delayInMinutes":fishAlarm()});
     else if(localStorage['frequency'] == "rare")
@@ -35,8 +36,11 @@ var setAlarm = function(e) {
         chrome.alarms.create("", {"delayInMinutes":1});
 };
 
-var pokemonFound = function(e) {
+var encounter = function(e) {
+    chrome.browserAction.setBadgeText({ text: "!" });
     setAlarm();
+    init();
+    return;
     chrome.browserAction.setIcon({"path":"/images/icon!.png"});
     chrome.browserAction.setPopup({"popup":"/html/battle.html"});
     var opt = {
@@ -78,4 +82,4 @@ var init = function() {
     localStorage['islands'] = JSON.stringify({});
 };
 
-//chrome.alarms.onAlarm.addListener(pokemonFound);
+chrome.alarms.onAlarm.addListener(encounter);

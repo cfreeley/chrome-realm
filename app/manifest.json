@@ -23,7 +23,8 @@
     "http://*/*",
     "https://*/*",
     "notifications",
-    "storage"
+    "storage",
+    "alarms"
   ],
   "options_ui": {
     "page": "options.html",

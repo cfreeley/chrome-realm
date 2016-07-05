@@ -1,7 +1,7 @@
 var chance = new Chance();
 
 var generateIsland = function () {
-    return chance.word();
+    return chance.word().toUpperCase();
 };
 
 var fishAlarm = function() {
